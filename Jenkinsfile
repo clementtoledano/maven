@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                withMaven {
+                withMaven(maven: 'maven3') {
                     echo 'foo'
-                    sh 'mvn clean verify'
+                    sh 'mvn clean install'
                     echo 'bar'
-                } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports}
+                }
             }
         }
     }
