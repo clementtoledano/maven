@@ -1,15 +1,14 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                withMaven(maven: 'maven3') {
-                    echo 'foo'
-                    sh 'mvn clean install'
-                    echo 'bar'
-                }
-            }
-        }
+  agent any
+  stages {
+    stage("maven install") {
+      steps {
+        withMaven(maven: "maven3") {
+            echo 'foobar'
+            sh 'mvn clean install'
+            echo 'foobar'
+          }
+      }
     }
+  }
 }
-
